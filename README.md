@@ -14,7 +14,7 @@ data/data.json on GitHub (main branch)
 Chrome extension (new tab) -> local cache -> rendered page
 ```
 
-The extension talks only to `api.github.com`, so it works on any network. No VPN or Tailscale is needed. The last fetched data is cached in the browser, so a new tab still renders when you are offline.
+The extension talks only to `api.github.com` (data) and `open-meteo.com` (weather), so it works on any network. No VPN or Tailscale is needed. The last fetched data is cached in the browser, so a new tab still renders when you are offline.
 
 ## Install
 
@@ -38,10 +38,12 @@ The token is stored only in this browser's extension storage.
 
 | Area | Content |
 |---|---|
-| Summary | Counts of new, closing soon (within 7 days), open, and total items |
+| 날씨 | Today's weather next to the clock (Open-Meteo, no API key). The city is set under **설정**; the default is 서울 |
+| 즐겨찾기 | Full-width row at the top with the cards you starred (☆ on each card). Synced through your Chrome profile |
 | AI 연구직 · 전문연 가능 | Open positions where 전문연구요원 is confirmed possible; filters for new, closing soon |
 | GPU 지원사업 · 대학 가능 | Open programs that universities or university labs can apply to; filters for new, closing soon, government, corporate |
 | 지난 항목 | Closed or expired items, folded by default |
+| 삭제한 항목 | Cards you removed with ✕, folded by default; each has a 복원 button |
 | 업데이트 기록 | One line per daily run with new and changed counts |
 
 All found items are stored in `data/data.json`, but the page shows only 전문연-eligible positions and university-eligible GPU programs. Items are sorted with new ones first, then by nearest deadline. Data is refetched when the cached copy is older than 30 minutes, or when you click **새로고침**.

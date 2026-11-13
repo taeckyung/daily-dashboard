@@ -12,6 +12,7 @@
   --changed: #8a5a00;
   --changed-bg: #fbf0d6;
   --tag-bg: #eceef2;
+  --star: #c98a00;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,6 +30,7 @@
     --changed: #f0c56a;
     --changed-bg: #3a2e12;
     --tag-bg: #262a33;
+    --star: #f2c14e;
   }
 }
 
@@ -57,18 +59,23 @@ button:disabled { opacity: 0.5; cursor: default; }
 .top { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
 .clock { font-size: 64px; font-weight: 200; line-height: 1; letter-spacing: -2px; font-variant-numeric: tabular-nums; }
 .today { margin-top: 6px; color: var(--muted); font-size: 15px; }
+.top-left { display: flex; align-items: center; gap: 36px; flex-wrap: wrap; }
+.weather { display: flex; align-items: center; gap: 12px; }
+.weather:empty { display: none; }
+.weather-icon { font-size: 44px; line-height: 1; }
+.weather-now { display: flex; align-items: baseline; gap: 8px; }
+.weather-temp { font-size: 30px; font-weight: 300; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.weather-label { font-size: 15px; }
+.weather-range, .weather-place { color: var(--muted); font-size: 13px; }
 .status { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 13px; }
 
 .notice { margin: 16px 0 0; padding: 10px 14px; border-radius: 8px; background: var(--soon-bg); color: var(--soon); }
 
-.summary { display: flex; gap: 12px; margin: 24px 0; flex-wrap: wrap; }
-.stat { flex: 1 1 120px; padding: 14px 18px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
-.stat-value { font-size: 28px; font-weight: 600; line-height: 1.1; font-variant-numeric: tabular-nums; }
-.stat-label { color: var(--muted); font-size: 12px; margin-top: 2px; }
-.stat.new .stat-value { color: var(--new); }
-.stat.soon .stat-value { color: var(--soon); }
+.favorites { margin: 28px 0 0; }
+.favorites h2 { margin: 0 0 10px; font-size: 17px; font-weight: 600; }
+.favorites .hint { margin: 0; color: var(--muted); font-size: 13px; }
 
-.columns { display: flex; flex-direction: column; gap: 36px; }
+.columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; margin-top: 28px; }
 .column h2 { display: flex; justify-content: space-between; align-items: baseline; margin: 0 0 10px; font-size: 17px; font-weight: 600; }
 .count { color: var(--muted); font-size: 13px; font-weight: 400; }
 
@@ -76,10 +83,8 @@ button:disabled { opacity: 0.5; cursor: default; }
 .chip { border-radius: 999px; font-size: 12px; padding: 3px 11px; }
 .chip[aria-pressed="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
 
-.list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); gap: 10px; }
 .list .empty { grid-column: 1 / -1; }
-@media (max-width: 1000px) { .list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (max-width: 640px) { .list { grid-template-columns: minmax(0, 1fr); } }
 .card { display: flex; justify-content: space-between; gap: 14px; padding: 12px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
 .card.is-closed { opacity: 0.6; }
 .card-main { min-width: 0; }
@@ -95,12 +100,20 @@ a.card-title:hover { color: var(--accent); text-decoration: underline; }
 .badge.changed { background: var(--changed-bg); color: var(--changed); }
 .badge.tag { background: var(--tag-bg); color: var(--muted); font-weight: 500; }
 
-.dday { flex: none; align-self: flex-start; min-width: 56px; text-align: center; padding: 4px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; background: var(--tag-bg); color: var(--muted); font-variant-numeric: tabular-nums; }
+.dday { min-width: 56px; text-align: center; padding: 4px 8px; border-radius: 6px; font-size: 12px; font-weight: 600; background: var(--tag-bg); color: var(--muted); font-variant-numeric: tabular-nums; }
 .dday.soon { background: var(--soon-bg); color: var(--soon); }
+.card-side { flex: none; display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; gap: 8px; }
+.card-actions { display: flex; align-items: center; gap: 6px; }
+.star, .hide { border: none; background: none; padding: 0 2px; font-size: 20px; line-height: 1; color: var(--muted); }
+.hide { font-size: 15px; }
+.hide:hover { color: var(--soon); }
+.restore { font-size: 12px; padding: 2px 8px; }
+.star:hover, .star[aria-pressed="true"] { color: var(--star); }
 
 .empty { margin: 0; padding: 24px; text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: 10px; }
 
 .archive { margin-top: 14px; }
+.archive + .archive { margin-top: 4px; }
 .archive summary, .log summary { cursor: pointer; color: var(--muted); font-size: 13px; padding: 4px 0; }
 .archive .list { margin-top: 8px; }
 

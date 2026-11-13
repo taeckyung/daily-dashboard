@@ -42,8 +42,38 @@ export function el(tag, props = {}, children = []) {
   return node;
 }
 
-export function toEntries(items, column, todayKey, latestRun) {
-  return (items ?? []).filter(column.visible).map((item) => ({ item, state: classify(item, todayKey, latestRun) }));
+export function favoriteKey(category, item) {
+  return `${category}:${item.id}`;
+}
+
+/** Favorited items stay listed even when the column's visibility rule would hide them. */
+export function toEntries(items, category, { favorites, hidden }, todayKey, latestRun) {
+  const column = COLUMNS[category];
+  return (items ?? [])
+    .map((item) => ({ item, category, favKey: favoriteKey(category, item), state: classify(item, todayKey, latestRun) }))
+    .map((entry) => ({ ...entry, isFavorite: favorites.includes(entry.favKey), isHidden: hidden.includes(entry.favKey) }))
+    .filter((entry) => entry.isFavorite || column.visible(entry.item));
+}
+
+function starButton(entry, onToggle) {
+  const button = el("button", {
+    type: "button",
+    class: "star",
+    "aria-pressed": String(entry.isFavorite),
+    "aria-label": entry.isFavorite ? "즐겨찾기 해제" : "즐겨찾기 추가",
+    text: entry.isFavorite ? "★" : "☆",
+  });
+  button.addEventListener("click", () => onToggle(entry.favKey));
+  return button;
+}
+
+function hideButton(entry, onHide) {
+  const props = entry.isHidden
+    ? { type: "button", class: "restore", text: "복원" }
+    : { type: "button", class: "hide", "aria-label": "삭제", title: "삭제", text: "✕" };
+  const button = el("button", props);
+  button.addEventListener("click", () => onHide(entry.favKey));
+  return button;
 }
 
 function badge(text, kind) {
@@ -56,8 +86,9 @@ function titleNode(text, url) {
   return el("a", { class: "card-title", href, target: "_blank", rel: "noopener noreferrer", text });
 }
 
-function card(entry, column) {
+function card(entry, actions) {
   const { item, state } = entry;
+  const column = COLUMNS[entry.category];
   const urgency = state.closed ? "closed" : state.closingSoon ? "soon" : "plain";
   const badges = [
     state.isNew && badge("신규", "new"),
@@ -76,7 +107,13 @@ function card(entry, column) {
       details && el("p", { class: "card-details", text: details }),
       el("div", { class: "card-meta" }, [...badges, el("span", { class: "dates", text: dates })]),
     ]),
-    el("div", { class: `dday ${urgency}`, text: ddayLabel(state, item) }),
+    el("div", { class: "card-side" }, [
+      el("div", { class: `dday ${urgency}`, text: ddayLabel(state, item) }),
+      el("div", { class: "card-actions" }, [
+        !entry.isHidden && starButton(entry, actions.onToggle),
+        hideButton(entry, actions.onHide),
+      ]),
+    ]),
   ]);
 }
 
@@ -89,39 +126,42 @@ function filterBar(column, activeKey, onSelect) {
   }));
 }
 
-export function renderColumn(root, column, entries, activeKey, onSelect) {
+function foldedList(label, entries, actions) {
+  if (!entries.length) return "";
+  return el("details", { class: "archive" }, [
+    el("summary", { text: `${label} ${entries.length}` }),
+    el("div", { class: "list" }, entries.map((entry) => card(entry, actions))),
+  ]);
+}
+
+export function renderColumn(root, column, allEntries, activeKey, onSelect, actions) {
+  const visible = allEntries.filter((e) => column.visible(e.item));
+  const entries = visible.filter((e) => !e.isHidden);
+  const removed = sortClosed(visible.filter((e) => e.isHidden));
   const filter = column.filters.find((f) => f.key === activeKey) ?? column.filters[0];
   const open = sortOpen(entries.filter((e) => !e.state.closed && filter.test(e)));
   const closed = sortClosed(entries.filter((e) => e.state.closed));
   const openCount = entries.filter((e) => !e.state.closed).length;
   const list = open.length
-    ? open.map((entry) => card(entry, column))
+    ? open.map((entry) => card(entry, actions))
     : [el("p", { class: "empty", text: entries.length ? "조건에 맞는 항목 없음" : "아직 수집된 항목 없음" })];
-  const archive = closed.length && el("details", { class: "archive" }, [
-    el("summary", { text: `지난 항목 ${closed.length}` }),
-    el("div", { class: "list" }, closed.map((entry) => card(entry, column))),
-  ]);
   root.replaceChildren(
     el("h2", {}, [el("span", { text: column.title }), el("span", { class: "count", text: `진행 중 ${openCount}` })]),
     filterBar(column, filter.key, onSelect),
     el("div", { class: "list" }, list),
-    archive || "",
+    foldedList("지난 항목", closed, actions),
+    foldedList("삭제한 항목", removed, actions),
   );
 }
 
-export function renderSummary(root, allEntries) {
-  const open = allEntries.filter((e) => !e.state.closed);
-  const stats = [
-    ["신규", open.filter((e) => e.state.isNew).length, "new"],
-    ["마감 임박", open.filter((e) => e.state.closingSoon).length, "soon"],
-    ["진행 중", open.length, "plain"],
-    ["누적", allEntries.length, "plain"],
-  ];
-  root.replaceChildren(...stats.map(([label, value, kind]) =>
-    el("div", { class: `stat ${kind}` }, [
-      el("div", { class: "stat-value", text: String(value) }),
-      el("div", { class: "stat-label", text: label }),
-    ])));
+export function renderFavorites(root, allEntries, actions) {
+  const favorites = allEntries.filter((e) => e.isFavorite && !e.isHidden);
+  const open = sortOpen(favorites.filter((e) => !e.state.closed));
+  const closed = sortClosed(favorites.filter((e) => e.state.closed));
+  const body = favorites.length
+    ? el("div", { class: "list" }, [...open, ...closed].map((entry) => card(entry, actions)))
+    : el("p", { class: "hint", text: "카드의 ☆를 누르면 여기에 모입니다." });
+  root.replaceChildren(el("h2", { text: `즐겨찾기 ${favorites.length || ""}`.trim() }), body);
 }
 
 export function renderLog(root, runs) {

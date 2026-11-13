@@ -6,5 +6,9 @@
   "chrome_url_overrides": { "newtab": "newtab.html" },
   "options_ui": { "page": "options.html", "open_in_tab": false },
   "permissions": ["storage"],
-  "host_permissions": ["https://api.github.com/*"]
+  "host_permissions": [
+    "https://api.github.com/*",
+    "https://api.open-meteo.com/*",
+    "https://geocoding-api.open-meteo.com/*"
+  ]
 }

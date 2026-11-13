@@ -1,11 +1,44 @@
 import { toDateKey } from "./logic.js";
-import { fetchData, isStale, loadCache, loadSource } from "./store.js";
-import { COLUMNS, renderColumn, renderLog, renderSummary, toEntries } from "./view.js";
+import { STORAGE_KEYS } from "./config.js";
+import {
+  fetchData,
+  fetchWeather,
+  isStale,
+  loadCache,
+  loadKeys,
+  loadPlace,
+  loadSource,
+  loadWeatherCache,
+  saveKeys,
+} from "./store.js";
+import { renderWeather } from "./weather.js";
+import { COLUMNS, renderColumn, renderFavorites, renderLog, toEntries } from "./view.js";
 
 const CLOCK_TICK_MS = 1000;
 const $ = (id) => document.getElementById(id);
 let activeFilters = { jobs: "all", gpu: "all" };
 let current = null;
+let marks = { favorites: [], hidden: [] };
+
+const toggled = (keys, key) => (keys.includes(key) ? keys.filter((k) => k !== key) : [...keys, key]);
+
+async function saveMarks(next) {
+  marks = next;
+  render();
+  await Promise.all([
+    saveKeys(STORAGE_KEYS.favorites, marks.favorites),
+    saveKeys(STORAGE_KEYS.hidden, marks.hidden),
+  ]);
+}
+
+const actions = {
+  onToggle: (key) => saveMarks({ ...marks, favorites: toggled(marks.favorites, key) }),
+  /** Deleting a card also drops it from favorites; restoring does not re-add it. */
+  onHide: (key) => saveMarks({
+    favorites: marks.favorites.filter((k) => k !== key),
+    hidden: toggled(marks.hidden, key),
+  }),
+};
 
 function renderClock() {
   const now = new Date();
@@ -23,15 +56,15 @@ function render() {
   const todayKey = toDateKey(new Date());
   const latestRun = data.runs?.[0]?.date ?? null;
   const entries = Object.fromEntries(
-    Object.entries(COLUMNS).map(([key, column]) => [key, toEntries(data[key], column, todayKey, latestRun)]),
+    Object.keys(COLUMNS).map((key) => [key, toEntries(data[key], key, marks, todayKey, latestRun)]),
   );
   for (const [key, column] of Object.entries(COLUMNS)) {
     renderColumn($(key), column, entries[key], activeFilters[key], (filterKey) => {
       activeFilters = { ...activeFilters, [key]: filterKey };
       render();
-    });
+    }, actions);
   }
-  renderSummary($("summary"), Object.values(entries).flat());
+  renderFavorites($("favorites"), Object.values(entries).flat(), actions);
   renderLog($("log"), data.runs);
   $("updated").textContent = data.updated_at
     ? `마지막 업데이트 ${new Date(data.updated_at).toLocaleString("ko-KR", { dateStyle: "short", timeStyle: "short" })}`
@@ -52,12 +85,32 @@ async function refresh() {
   }
 }
 
+/** Weather is optional: on failure the last cached value stays on screen. */
+async function showWeather() {
+  let weather = await loadWeatherCache();
+  renderWeather($("weather"), weather?.data);
+  if (!isStale(weather)) return;
+  try {
+    weather = await fetchWeather(await loadPlace());
+    renderWeather($("weather"), weather.data);
+  } catch {
+    // Keep whatever is already rendered.
+  }
+}
+
 async function start() {
   renderClock();
   setInterval(renderClock, CLOCK_TICK_MS);
   $("refresh").addEventListener("click", refresh);
   $("settings").addEventListener("click", () => chrome.runtime.openOptionsPage());
-  current = await loadCache();
+  const [cache, favorites, hidden] = await Promise.all([
+    loadCache(),
+    loadKeys(STORAGE_KEYS.favorites),
+    loadKeys(STORAGE_KEYS.hidden),
+  ]);
+  current = cache;
+  marks = { favorites, hidden };
+  showWeather();
   render();
   if (isStale(current)) await refresh();
 }

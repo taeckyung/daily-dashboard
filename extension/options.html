@@ -10,6 +10,7 @@
       small { color: #666d7a; }
       button { font: inherit; padding: 6px 14px; }
       #saved { margin-left: 8px; color: #0b7a4b; }
+      #error { margin-left: 8px; color: #b3391f; }
     </style>
   </head>
   <body>
@@ -18,11 +19,16 @@
       <label>저장소 이름 <input name="repo" required /></label>
       <label>브랜치 <input name="branch" required /></label>
       <label>
+        날씨 지역
+        <input name="city" required />
+        <small>도시 이름. 예: 서울, 대전, Busan</small>
+      </label>
+      <label>
         GitHub 토큰 (비공개 저장소일 때만)
         <input name="token" type="password" autocomplete="off" />
         <small>Fine-grained 토큰, 해당 저장소의 Contents: Read-only 권한만 부여. 이 브라우저에만 저장됩니다.</small>
       </label>
-      <button type="submit">저장</button><span id="saved" hidden>저장됨</span>
+      <button type="submit">저장</button><span id="saved" hidden>저장됨</span><span id="error" hidden></span>
     </form>
     <script type="module" src="options.js"></script>
   </body>
