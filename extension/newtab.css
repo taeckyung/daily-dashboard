@@ -121,8 +121,9 @@ button:disabled { opacity: 0.5; cursor: default; }
 
 .card-actions { flex: none; display: flex; align-items: center; gap: 2px; opacity: 0.35; transition: opacity 0.12s; }
 .card:hover .card-actions, .card:focus-within .card-actions, .card.is-marked .card-actions { opacity: 1; }
-.star, .hide { width: 26px; height: 26px; border: none; border-radius: 6px; background: none; padding: 0; font-size: 17px; line-height: 1; color: var(--muted); }
-.hide { font-size: 13px; }
+.star, .hide { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border: none; border-radius: 6px; background: none; padding: 0; color: var(--muted); }
+.star svg, .hide svg { display: block; width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.star[aria-pressed="true"] svg { fill: currentColor; }
 .star:hover, .hide:hover { background: var(--tag-bg); }
 .hide:hover { color: var(--soon); }
 .star:hover, .star[aria-pressed="true"] { color: var(--star); }

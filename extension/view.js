@@ -55,23 +55,39 @@ export function toEntries(items, category, { favorites, hidden }, todayKey, late
     .filter((entry) => entry.isFavorite || column.visible(entry.item));
 }
 
+const SVG_NS = "http://www.w3.org/2000/svg";
+const ICON_PATHS = Object.freeze({
+  star: "M12 3.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.2-4.1 5.8-.8z",
+  close: "M6.5 6.5l11 11M17.5 6.5l-11 11",
+});
+
+/** Icons are drawn as SVG in one shared box so they line up regardless of font. */
+function icon(name) {
+  const svg = document.createElementNS(SVG_NS, "svg");
+  svg.setAttribute("viewBox", "0 0 24 24");
+  svg.setAttribute("aria-hidden", "true");
+  const path = document.createElementNS(SVG_NS, "path");
+  path.setAttribute("d", ICON_PATHS[name]);
+  svg.append(path);
+  return svg;
+}
+
 function starButton(entry, onToggle) {
   const button = el("button", {
     type: "button",
     class: "star",
     "aria-pressed": String(entry.isFavorite),
     "aria-label": entry.isFavorite ? "즐겨찾기 해제" : "즐겨찾기 추가",
-    text: entry.isFavorite ? "★" : "☆",
-  });
+    title: entry.isFavorite ? "즐겨찾기 해제" : "즐겨찾기 추가",
+  }, [icon("star")]);
   button.addEventListener("click", () => onToggle(entry.favKey));
   return button;
 }
 
 function hideButton(entry, onHide) {
-  const props = entry.isHidden
-    ? { type: "button", class: "restore", text: "복원" }
-    : { type: "button", class: "hide", "aria-label": "삭제", title: "삭제", text: "✕" };
-  const button = el("button", props);
+  const button = entry.isHidden
+    ? el("button", { type: "button", class: "restore", text: "복원" })
+    : el("button", { type: "button", class: "hide", "aria-label": "삭제", title: "삭제" }, [icon("close")]);
   button.addEventListener("click", () => onHide(entry.favKey));
   return button;
 }
