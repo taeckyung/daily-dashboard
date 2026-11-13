@@ -87,11 +87,13 @@ async function refresh() {
 
 /** Weather is optional: on failure the last cached value stays on screen. */
 async function showWeather() {
-  let weather = await loadWeatherCache();
+  const [cached, place] = await Promise.all([loadWeatherCache(), loadPlace()]);
+  const usable = cached?.data.place === place.name && "tomorrow" in cached.data;
+  let weather = usable ? cached : null;
   renderWeather($("weather"), weather?.data);
   if (!isStale(weather)) return;
   try {
-    weather = await fetchWeather(await loadPlace());
+    weather = await fetchWeather(place);
     renderWeather($("weather"), weather.data);
   } catch {
     // Keep whatever is already rendered.

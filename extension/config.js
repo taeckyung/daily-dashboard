@@ -6,7 +6,7 @@ export const DEFAULT_SOURCE = Object.freeze({
   token: "",
 });
 
-export const DEFAULT_PLACE = Object.freeze({ name: "서울", latitude: 37.5665, longitude: 126.978 });
+export const DEFAULT_PLACE = Object.freeze({ name: "대전", latitude: 36.3502, longitude: 127.3848 });
 
 export const API_BASE = "https://api.github.com";
 export const WEATHER_API = "https://api.open-meteo.com/v1/forecast";

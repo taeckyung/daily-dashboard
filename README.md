@@ -38,7 +38,7 @@ The token is stored only in this browser's extension storage.
 
 | Area | Content |
 |---|---|
-| 날씨 | Today's weather next to the clock (Open-Meteo, with MET Norway as fallback; no API key). The city is set under **설정**; the default is 서울 |
+| 날씨 | Today's and tomorrow's weather next to the clock (Open-Meteo, with MET Norway as fallback; no API key). The city is set under **설정**; the default is 대전 |
 | 즐겨찾기 | Full-width row at the top with the cards you starred (☆ on each card). Synced through your Chrome profile |
 | AI 연구직 · 전문연 가능 | Open positions where 전문연구요원 is confirmed possible; filters for new, closing soon |
 | GPU 지원사업 · 대학 가능 | Open programs that universities or university labs can apply to; filters for new, closing soon, government, corporate |

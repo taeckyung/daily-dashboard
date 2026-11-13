@@ -17,12 +17,16 @@ const UNKNOWN_CONDITION = { icon: "🌡️", label: "" };
 
 const degrees = (value) => `${Math.round(value)}°`;
 
+function rangeText(day) {
+  const rain = day.rainChance == null ? null : `강수 ${day.rainChance}%`;
+  return [`최고 ${degrees(day.high)}`, `최저 ${degrees(day.low)}`, rain].filter(Boolean).join(" · ");
+}
+
 export function renderWeather(root, weather) {
   if (!weather) return root.replaceChildren();
   const condition = CONDITIONS[weather.kind] ?? UNKNOWN_CONDITION;
   const feels = weather.feelsLike == null ? null : `체감 ${degrees(weather.feelsLike)}`;
-  const rain = weather.rainChance == null ? null : `강수 ${weather.rainChance}%`;
-  const range = [`최고 ${degrees(weather.high)}`, `최저 ${degrees(weather.low)}`, rain].filter(Boolean).join(" · ");
+  const tomorrow = weather.tomorrow;
   root.replaceChildren(
     el("div", { class: "weather-icon", text: condition.icon, "aria-hidden": "true" }),
     el("div", {}, [
@@ -30,8 +34,16 @@ export function renderWeather(root, weather) {
         el("span", { class: "weather-temp", text: degrees(weather.temperature) }),
         el("span", { class: "weather-label", text: condition.label }),
       ]),
-      el("div", { class: "weather-range", text: range }),
+      el("div", { class: "weather-range", text: rangeText(weather) }),
       el("div", { class: "weather-place", text: [weather.place, feels].filter(Boolean).join(" · ") }),
+    ]),
+    tomorrow && el("div", { class: "weather-tomorrow" }, [
+      el("div", { class: "weather-day", text: "내일" }),
+      el("div", { class: "weather-now" }, [
+        el("span", { class: "weather-icon-small", text: (CONDITIONS[tomorrow.kind] ?? UNKNOWN_CONDITION).icon, "aria-hidden": "true" }),
+        el("span", { class: "weather-label", text: (CONDITIONS[tomorrow.kind] ?? UNKNOWN_CONDITION).label }),
+      ]),
+      el("div", { class: "weather-range", text: rangeText(tomorrow) }),
     ]),
   );
 }

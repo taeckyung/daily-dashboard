@@ -15,6 +15,13 @@ const SYMBOL_KINDS = [
   ["cloudy", "cloudy"], ["fair", "mostly-clear"], ["clearsky", "clear"],
 ];
 
+const DAY_MS = 24 * 60 * 60 * 1000;
+const MIDDAY_HOUR = 12;
+
+const wmoKind = (code) => WMO_KINDS.find(([max]) => code <= max)?.[1] ?? null;
+const symbolKind = (symbol) => SYMBOL_KINDS.find(([part]) => (symbol ?? "").includes(part))?.[1] ?? null;
+const symbolOf = (data) => (data.next_1_hours ?? data.next_6_hours)?.summary.symbol_code;
+
 async function fetchJson(url) {
   const response = await fetch(url, { signal: AbortSignal.timeout(WEATHER_TIMEOUT_MS) });
   if (!response.ok) throw new Error(`날씨 응답 오류 (${response.status})`);
@@ -26,38 +33,45 @@ async function fromOpenMeteo(place) {
     latitude: place.latitude,
     longitude: place.longitude,
     current: "temperature_2m,apparent_temperature,weather_code",
-    daily: "temperature_2m_max,temperature_2m_min,precipitation_probability_max",
+    daily: "weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max",
     timezone: "auto",
-    forecast_days: "1",
+    forecast_days: "2",
   });
   const { current, daily } = await fetchJson(`${WEATHER_API}?${query}`);
   return {
     temperature: current.temperature_2m,
     feelsLike: current.apparent_temperature,
-    kind: WMO_KINDS.find(([max]) => current.weather_code <= max)?.[1] ?? null,
+    kind: wmoKind(current.weather_code),
     high: daily.temperature_2m_max[0],
     low: daily.temperature_2m_min[0],
     rainChance: daily.precipitation_probability_max[0],
+    tomorrow: {
+      kind: wmoKind(daily.weather_code[1]),
+      high: daily.temperature_2m_max[1],
+      low: daily.temperature_2m_min[1],
+      rainChance: daily.precipitation_probability_max[1],
+    },
   };
 }
 
-/** Fallback source. It has no feels-like or rain chance; high and low cover the rest of today. */
+/** Fallback source. No feels-like or rain chance; today's high and low cover the rest of the day. */
 async function fromMetNo(place) {
   const query = new URLSearchParams({ lat: place.latitude.toFixed(4), lon: place.longitude.toFixed(4) });
   const series = (await fetchJson(`${WEATHER_FALLBACK_API}?${query}`)).properties.timeseries;
-  const today = toDateKey(new Date());
-  const temperatures = series
-    .filter((entry) => toDateKey(new Date(entry.time)) === today)
-    .map((entry) => entry.data.instant.details.air_temperature);
+  const onDay = (date) => series.filter((entry) => toDateKey(new Date(entry.time)) === toDateKey(date));
+  const range = (entries) => {
+    const temperatures = entries.map((entry) => entry.data.instant.details.air_temperature);
+    return { high: Math.max(...temperatures), low: Math.min(...temperatures), rainChance: null };
+  };
+  const nextDay = onDay(new Date(Date.now() + DAY_MS));
+  const midday = nextDay.find((entry) => new Date(entry.time).getHours() >= MIDDAY_HOUR) ?? nextDay[0];
   const now = series[0].data;
-  const symbol = (now.next_1_hours ?? now.next_6_hours)?.summary.symbol_code ?? "";
   return {
     temperature: now.instant.details.air_temperature,
     feelsLike: null,
-    kind: SYMBOL_KINDS.find(([part]) => symbol.includes(part))?.[1] ?? null,
-    high: Math.max(...temperatures),
-    low: Math.min(...temperatures),
-    rainChance: null,
+    kind: symbolKind(symbolOf(now)),
+    ...range(onDay(new Date())),
+    tomorrow: nextDay.length ? { kind: symbolKind(symbolOf(midday.data)), ...range(nextDay) } : null,
   };
 }
 
