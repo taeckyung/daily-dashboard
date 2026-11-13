@@ -82,8 +82,10 @@ function badge(text, kind) {
 
 function titleNode(text, url) {
   const href = safeUrl(url);
-  if (!href) return el("span", { class: "card-title", text });
-  return el("a", { class: "card-title", href, target: "_blank", rel: "noopener noreferrer", text });
+  const inner = href
+    ? el("a", { href, target: "_blank", rel: "noopener noreferrer", text })
+    : el("span", { text });
+  return el("h3", { class: "card-title", title: text }, [inner]);
 }
 
 function card(entry, actions) {
@@ -96,25 +98,27 @@ function card(entry, actions) {
     ...column.tags(item).map((tag) => badge(tag, "tag")),
   ];
   const details = column.details(item).filter(Boolean).join(" · ");
-  const dates = [
-    item.deadline && `마감 ${item.deadline}`,
-    `등록 ${item.first_seen}`,
-  ].filter(Boolean).join(" · ");
-  return el("article", { class: `card ${state.closed ? "is-closed" : ""}` }, [
-    el("div", { class: "card-main" }, [
-      el("div", { class: "card-owner", text: column.owner(item) }),
-      titleNode(column.heading(item), item.url),
-      details && el("p", { class: "card-details", text: details }),
-      el("div", { class: "card-meta" }, [...badges, el("span", { class: "dates", text: dates })]),
+  const deadline = item.deadline && `마감 ${item.deadline.slice(5).replace("-", ".")}`;
+  const marked = entry.isFavorite || entry.isHidden ? "is-marked" : "";
+  return el("article", { class: `card ${urgency} ${state.closed ? "is-closed" : ""} ${marked}` }, [
+    el("div", { class: "card-head" }, [
+      el("span", { class: "card-owner", text: column.owner(item) }),
+      el("span", { class: `dday ${urgency}`, text: ddayLabel(state, item) }),
     ]),
-    el("div", { class: "card-side" }, [
-      el("div", { class: `dday ${urgency}`, text: ddayLabel(state, item) }),
+    titleNode(column.heading(item), item.url),
+    details && el("p", { class: "card-details", title: details, text: details }),
+    el("div", { class: "card-foot" }, [
+      el("div", { class: "card-meta" }, [...badges, deadline && el("span", { class: "dates", text: deadline })]),
       el("div", { class: "card-actions" }, [
         !entry.isHidden && starButton(entry, actions.onToggle),
         hideButton(entry, actions.onHide),
       ]),
     ]),
   ]);
+}
+
+function sectionTitle(text, count) {
+  return el("h2", {}, [el("span", { text }), el("span", { class: "count", text: String(count) })]);
 }
 
 function filterBar(column, activeKey, onSelect) {
@@ -146,8 +150,10 @@ export function renderColumn(root, column, allEntries, activeKey, onSelect, acti
     ? open.map((entry) => card(entry, actions))
     : [el("p", { class: "empty", text: entries.length ? "조건에 맞는 항목 없음" : "아직 수집된 항목 없음" })];
   root.replaceChildren(
-    el("h2", {}, [el("span", { text: column.title }), el("span", { class: "count", text: `진행 중 ${openCount}` })]),
-    filterBar(column, filter.key, onSelect),
+    el("div", { class: "section-head" }, [
+      sectionTitle(column.title, openCount),
+      filterBar(column, filter.key, onSelect),
+    ]),
     el("div", { class: "list" }, list),
     foldedList("지난 항목", closed, actions),
     foldedList("삭제한 항목", removed, actions),
@@ -161,7 +167,7 @@ export function renderFavorites(root, allEntries, actions) {
   const body = favorites.length
     ? el("div", { class: "list" }, [...open, ...closed].map((entry) => card(entry, actions)))
     : el("p", { class: "hint", text: "카드의 ☆를 누르면 여기에 모입니다." });
-  root.replaceChildren(el("h2", { text: `즐겨찾기 ${favorites.length || ""}`.trim() }), body);
+  root.replaceChildren(el("div", { class: "section-head" }, [sectionTitle("즐겨찾기", favorites.length)]), body);
 }
 
 export function renderLog(root, runs) {
