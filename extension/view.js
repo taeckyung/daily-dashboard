@@ -2,7 +2,8 @@ import { classify, ddayLabel, safeUrl, sortClosed, sortOpen } from "./logic.js";
 
 export const COLUMNS = Object.freeze({
   jobs: {
-    title: "박사 AI 연구직 · 전문연",
+    title: "AI 연구직 · 전문연 가능",
+    visible: (item) => item.jeonmun === "가능",
     heading: (item) => item.title,
     owner: (item) => item.company,
     details: (item) => [item.qualification, item.note],
@@ -10,12 +11,12 @@ export const COLUMNS = Object.freeze({
       { key: "all", label: "전체", test: () => true },
       { key: "new", label: "신규", test: (e) => e.state.isNew },
       { key: "soon", label: "마감 임박", test: (e) => e.state.closingSoon },
-      { key: "jeonmun", label: "전문연 가능", test: (e) => e.item.jeonmun === "가능" },
     ],
-    tags: (item) => (item.jeonmun ? [`전문연 ${item.jeonmun}`] : []),
+    tags: () => [],
   },
   gpu: {
-    title: "국내 GPU 지원사업",
+    title: "GPU 지원사업 · 대학 가능",
+    visible: (item) => item.univ === "가능",
     heading: (item) => item.name,
     owner: (item) => item.org,
     details: (item) => [item.target, item.scale, item.note],
@@ -41,8 +42,8 @@ export function el(tag, props = {}, children = []) {
   return node;
 }
 
-export function toEntries(items, todayKey, latestRun) {
-  return (items ?? []).map((item) => ({ item, state: classify(item, todayKey, latestRun) }));
+export function toEntries(items, column, todayKey, latestRun) {
+  return (items ?? []).filter(column.visible).map((item) => ({ item, state: classify(item, todayKey, latestRun) }));
 }
 
 function badge(text, kind) {

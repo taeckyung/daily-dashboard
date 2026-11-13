@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-13T07:12:16+00:00",
+  "updated_at": "2026-11-13T07:46:32+00:00",
   "runs": [
     {
       "date": "2026-11-13",
@@ -336,7 +336,8 @@
       "status": "open",
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-13",
-      "changes": []
+      "changes": [],
+      "univ": "가능"
     },
     {
       "id": "ulsan-2026-mfg-ai-computing-gpu-pilot",
@@ -351,7 +352,8 @@
       "status": "open",
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-13",
-      "changes": []
+      "changes": [],
+      "univ": "불가"
     },
     {
       "id": "navercloud-greenhouse",
@@ -367,7 +369,8 @@
       "status": "open",
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-13",
-      "changes": []
+      "changes": [],
+      "univ": "불가"
     },
     {
       "id": "kakaocloud-rocket-launcher",
@@ -383,7 +386,8 @@
       "status": "open",
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-13",
-      "changes": []
+      "changes": [],
+      "univ": "불가"
     },
     {
       "id": "google-for-startups-cloud-ai",
@@ -399,7 +403,8 @@
       "status": "open",
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-13",
-      "changes": []
+      "changes": [],
+      "univ": "불가"
     },
     {
       "id": "aws-activate-credits",
@@ -415,7 +420,8 @@
       "status": "open",
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-13",
-      "changes": []
+      "changes": [],
+      "univ": "불가"
     },
     {
       "id": "microsoft-for-startups",
@@ -431,7 +437,8 @@
       "status": "open",
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-13",
-      "changes": []
+      "changes": [],
+      "univ": "불가"
     },
     {
       "id": "nvidia-inception",
@@ -447,7 +454,8 @@
       "status": "open",
       "first_seen": "2026-11-13",
       "last_seen": "2026-11-13",
-      "changes": []
+      "changes": [],
+      "univ": "불가"
     }
   ]
 }

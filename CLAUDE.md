@@ -40,7 +40,7 @@ Chrome new-tab extension plus accumulated data file. A scheduled Claude session 
     "deadline": "2026-11-30", "deadline_text": "상시", "url": "https://...", "note": "..."
   }],
   "gpu": [{
-    "id": "nipa-gpu-2026-4q", "name": "...", "org": "NIPA", "kind": "정부 | 기업",
+    "id": "nipa-gpu-2026-4q", "name": "...", "org": "NIPA", "kind": "정부 | 기업", "univ": "가능 | 불가 | 미확인",
     "target": "...", "scale": "...", "deadline": "2026-11-20", "url": "https://...", "note": "..."
   }]
 }
@@ -53,6 +53,8 @@ Chrome new-tab extension plus accumulated data file. A scheduled Claude session 
 - `id`: stable lowercase slug. Changing the `id` of an existing item prohibited.
 - `url`: the original posting, `http(s)` only.
 - `deadline`: `YYYY-MM-DD` or `null`. When the posting is rolling, use `null` and set `deadline_text`.
+- `univ` (gpu): whether universities or university labs are eligible applicants. Set on every gpu item.
+- The extension displays only jobs with `jeonmun` = `가능` and gpu items with `univ` = `가능`. Collect all items regardless; filtering is display-only.
 - Include only facts confirmed on the original posting. When 전문연 eligibility is unconfirmed, use `미확인`.
 - Include every currently open item found, including items already in `data/data.json`.
 - When a posting was taken down before the deadline, include the item with `"status": "closed"`.

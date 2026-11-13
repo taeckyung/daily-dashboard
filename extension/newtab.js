@@ -23,7 +23,7 @@ function render() {
   const todayKey = toDateKey(new Date());
   const latestRun = data.runs?.[0]?.date ?? null;
   const entries = Object.fromEntries(
-    Object.keys(COLUMNS).map((key) => [key, toEntries(data[key], todayKey, latestRun)]),
+    Object.entries(COLUMNS).map(([key, column]) => [key, toEntries(data[key], column, todayKey, latestRun)]),
   );
   for (const [key, column] of Object.entries(COLUMNS)) {
     renderColumn($(key), column, entries[key], activeFilters[key], (filterKey) => {

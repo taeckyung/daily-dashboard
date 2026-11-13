@@ -5,7 +5,7 @@
 ## How it works
 
 ```
-Scheduled Claude session (daily, 13:34 KST)
+Scheduled Claude session (daily, 08:34 KST)
     |  web search -> findings.json -> scripts/merge.py
     v
 data/data.json on GitHub (main branch)
@@ -39,12 +39,12 @@ The token is stored only in this browser's extension storage.
 | Area | Content |
 |---|---|
 | Summary | Counts of new, closing soon (within 7 days), open, and total items |
-| 박사 AI 연구직 · 전문연 | Open positions; filters for new, closing soon, 전문연 가능 |
-| 국내 GPU 지원사업 | Open programs; filters for new, closing soon, government, corporate |
+| AI 연구직 · 전문연 가능 | Open positions where 전문연구요원 is confirmed possible; filters for new, closing soon |
+| GPU 지원사업 · 대학 가능 | Open programs that universities or university labs can apply to; filters for new, closing soon, government, corporate |
 | 지난 항목 | Closed or expired items, folded by default |
 | 업데이트 기록 | One line per daily run with new and changed counts |
 
-Items are sorted with new ones first, then by nearest deadline. Data is refetched when the cached copy is older than 30 minutes, or when you click **새로고침**.
+All found items are stored in `data/data.json`, but the page shows only 전문연-eligible positions and university-eligible GPU programs. Items are sorted with new ones first, then by nearest deadline. Data is refetched when the cached copy is older than 30 minutes, or when you click **새로고침**.
 
 ## Data accumulation
 
