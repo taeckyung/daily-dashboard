@@ -99,7 +99,7 @@ export function renderColumn(root, column, entries, activeKey, onSelect) {
     : [el("p", { class: "empty", text: entries.length ? "조건에 맞는 항목 없음" : "아직 수집된 항목 없음" })];
   const archive = closed.length && el("details", { class: "archive" }, [
     el("summary", { text: `지난 항목 ${closed.length}` }),
-    ...closed.map((entry) => card(entry, column)),
+    el("div", { class: "list" }, closed.map((entry) => card(entry, column))),
   ]);
   root.replaceChildren(
     el("h2", {}, [el("span", { text: column.title }), el("span", { class: "count", text: `진행 중 ${openCount}` })]),
