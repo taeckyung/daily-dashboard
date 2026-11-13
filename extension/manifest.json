@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Daily Dashboard",
+  "description": "새 탭에서 박사 AI 연구직, 전문연 채용과 국내 GPU 지원사업 현황을 보여줍니다.",
+  "version": "0.1.0",
+  "chrome_url_overrides": { "newtab": "newtab.html" },
+  "options_ui": { "page": "options.html", "open_in_tab": false },
+  "permissions": ["storage"],
+  "host_permissions": ["https://api.github.com/*"]
+}

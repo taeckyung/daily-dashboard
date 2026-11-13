@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>Daily Dashboard 설정</title>
+    <style>
+      body { font: 14px/1.5 system-ui, sans-serif; margin: 16px; min-width: 360px; }
+      label { display: block; margin-bottom: 12px; }
+      input { display: block; width: 100%; margin-top: 4px; padding: 6px 8px; font: inherit; box-sizing: border-box; }
+      small { color: #666d7a; }
+      button { font: inherit; padding: 6px 14px; }
+      #saved { margin-left: 8px; color: #0b7a4b; }
+    </style>
+  </head>
+  <body>
+    <form id="form">
+      <label>저장소 소유자 <input name="owner" required /></label>
+      <label>저장소 이름 <input name="repo" required /></label>
+      <label>브랜치 <input name="branch" required /></label>
+      <label>
+        GitHub 토큰 (비공개 저장소일 때만)
+        <input name="token" type="password" autocomplete="off" />
+        <small>Fine-grained 토큰, 해당 저장소의 Contents: Read-only 권한만 부여. 이 브라우저에만 저장됩니다.</small>
+      </label>
+      <button type="submit">저장</button><span id="saved" hidden>저장됨</span>
+    </form>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>
