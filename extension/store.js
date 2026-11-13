@@ -5,7 +5,6 @@ import {
   GEOCODING_API,
   REFRESH_AFTER_MS,
   STORAGE_KEYS,
-  WEATHER_API,
 } from "./config.js";
 
 export async function loadSource() {
@@ -83,28 +82,7 @@ export async function loadWeatherCache() {
   return stored[STORAGE_KEYS.weather] ?? null;
 }
 
-/** Fetch today's weather for a place and store it as the cache. */
-export async function fetchWeather(place) {
-  const query = new URLSearchParams({
-    latitude: place.latitude,
-    longitude: place.longitude,
-    current: "temperature_2m,apparent_temperature,weather_code",
-    daily: "temperature_2m_max,temperature_2m_min,precipitation_probability_max",
-    timezone: "auto",
-    forecast_days: "1",
-  });
-  const response = await fetch(`${WEATHER_API}?${query}`);
-  if (!response.ok) throw new Error(`날씨 응답 오류 (${response.status})`);
-  const { current, daily } = await response.json();
-  const data = {
-    place: place.name,
-    temperature: current.temperature_2m,
-    feelsLike: current.apparent_temperature,
-    code: current.weather_code,
-    high: daily.temperature_2m_max[0],
-    low: daily.temperature_2m_min[0],
-    rainChance: daily.precipitation_probability_max[0],
-  };
+export async function saveWeatherCache(data) {
   const cache = { data, fetchedAt: Date.now() };
   await chrome.storage.local.set({ [STORAGE_KEYS.weather]: cache });
   return cache;

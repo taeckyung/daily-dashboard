@@ -9,6 +9,7 @@
   "host_permissions": [
     "https://api.github.com/*",
     "https://api.open-meteo.com/*",
+    "https://api.met.no/*",
     "https://geocoding-api.open-meteo.com/*"
   ]
 }

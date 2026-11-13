@@ -2,7 +2,6 @@ import { toDateKey } from "./logic.js";
 import { STORAGE_KEYS } from "./config.js";
 import {
   fetchData,
-  fetchWeather,
   isStale,
   loadCache,
   loadKeys,
@@ -11,6 +10,7 @@ import {
   loadWeatherCache,
   saveKeys,
 } from "./store.js";
+import { fetchWeather } from "./weather-source.js";
 import { renderWeather } from "./weather.js";
 import { COLUMNS, renderColumn, renderFavorites, renderLog, toEntries } from "./view.js";
 

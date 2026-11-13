@@ -10,6 +10,8 @@ export const DEFAULT_PLACE = Object.freeze({ name: "서울", latitude: 37.5665, 
 
 export const API_BASE = "https://api.github.com";
 export const WEATHER_API = "https://api.open-meteo.com/v1/forecast";
+export const WEATHER_FALLBACK_API = "https://api.met.no/weatherapi/locationforecast/2.0/compact";
+export const WEATHER_TIMEOUT_MS = 6000;
 export const GEOCODING_API = "https://geocoding-api.open-meteo.com/v1/search";
 export const REFRESH_AFTER_MS = 30 * 60 * 1000;
 export const CLOSING_SOON_DAYS = 7;
