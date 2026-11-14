@@ -1,6 +1,29 @@
 {
-  "updated_at": "2026-11-13T07:46:32+00:00",
+  "updated_at": "2026-11-14T03:21:26+00:00",
   "runs": [
+    {
+      "date": "2026-11-14",
+      "summary": "전문연 가능 AI 공고 10건 신규(스톤랩, 에이아이비즈, 매드업, 뷰런 등). 대기업 AI 전문연 공고와 GPU 신규 사업 없음",
+      "new": {
+        "jobs": [
+          "stonelab-jeonmun-ai-model-infra-2000001549306",
+          "smartlink-jeonmun-machine-vision-ai-2000001552089",
+          "aibiz-deep-learning-researcher-jeonmun-2000001533089",
+          "aibiz-data-scientist-jeonmun-2000001532890",
+          "madup-ai-engineer-platform-jeonmun-2000001545495",
+          "madup-ai-engineer-product-jeonmun-2000001545496",
+          "bigwave-robotics-research-engineer-jeonmun-2000001545106",
+          "hl-mando-jeonmun-pangyo-2000001559289",
+          "vueron-deep-learning-engineer-perception-jeonmun-00172756",
+          "vueron-deep-learning-engineer-e2e-jeonmun-00172755"
+        ],
+        "gpu": []
+      },
+      "changed": {
+        "jobs": [],
+        "gpu": []
+      }
+    },
     {
       "date": "2026-11-13",
       "summary": "초기 수집: 채용 19건, GPU 지원사업 8건. 대기업 AI 전문연 4개사(2027년 편입 TO) 공고는 아직 미게시",
@@ -56,7 +79,7 @@
       "note": "AI, Data Intelligence, 6G, Robot 등 8개 분야 인재풀. 특정 포지션 공고 아님. 서울 우면",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": []
     },
     {
@@ -71,7 +94,7 @@
       "note": "현역 신규편입 대상. '27년 편입은 TO 확보 여부에 따라 결정. 조기 마감 가능. 역삼",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": []
     },
     {
@@ -86,7 +109,7 @@
       "note": "계약직 1년(정규전환 가능). 조기 마감 가능. 역삼 또는 성수",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": []
     },
     {
@@ -101,7 +124,7 @@
       "note": "계약직 2년(정규전환 가능). 조기 마감 가능. 역삼",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": []
     },
     {
@@ -116,7 +139,7 @@
       "note": "LLM/LMM pre-training, post-training. 공고에 전문연구요원 채용 및 전직 불가 명시",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": []
     },
     {
@@ -131,7 +154,7 @@
       "note": "Residency 또는 Postdoc 1년 계약. 전문연 불가 명시",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": []
     },
     {
@@ -146,7 +169,7 @@
       "note": "전문연 불가 명시",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": []
     },
     {
@@ -161,7 +184,7 @@
       "note": "수리최적화 + ML/RL. 전문연 불가 명시",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": []
     },
     {
@@ -176,7 +199,7 @@
       "note": "제조 비전 검사, AI Agent. 전문연 불가 명시",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": []
     },
     {
@@ -190,7 +213,7 @@
       "note": "11/15 23:59 마감, 채용 완료 시 조기 마감. 성남 1784",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": []
     },
     {
@@ -205,7 +228,7 @@
       "note": "정규직, 신규편입 및 전직 대상. 강남",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": []
     },
     {
@@ -220,7 +243,7 @@
       "note": "제목에만 전문연구요원 표기, 본문에 편입/전직 조건 없음. SW(Kernel, Compiler, Runtime, SDK, MLOps) 중심",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": []
     },
     {
@@ -234,7 +257,7 @@
       "note": "병역일터 공고 기준. 현역 배정 1명. 서울 가산",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": []
     },
     {
@@ -248,7 +271,7 @@
       "note": "3DGS/NeRF, SMPL-X. 서울 강남",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": []
     },
     {
@@ -262,7 +285,7 @@
       "note": "모델 경량화, 인퍼런스 가속. 제목은 신규/전직이나 상세 항목은 전직자 채용 불가로 불일치. 서울 도곡",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": []
     },
     {
@@ -276,7 +299,7 @@
       "note": "마감일은 병역일터 공고 기준. 신규편입만. CTR/CVR 예측, RTB. 서울 강남",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": []
     },
     {
@@ -290,7 +313,7 @@
       "note": "의료영상 딥러닝. 모집 2명. 서울 역삼",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": []
     },
     {
@@ -304,7 +327,7 @@
       "note": "상세는 서울대 기계공학부 게시 공고문 기준. 전문연은 대전 연구소 근무",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": []
     },
     {
@@ -318,7 +341,147 @@
       "note": "rndjob 게시 기준, 신규편입/전직 구분 미확인. 서울 서초/강남",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
+      "changes": []
+    },
+    {
+      "id": "stonelab-jeonmun-ai-model-infra-2000001549306",
+      "company": "스톤랩",
+      "title": "스톤랩 전문연구요원 모집 (AI 모델, 인프라 개발 / 신규, 편입)",
+      "qualification": "석사 이상, 신입/경력",
+      "jeonmun": "가능",
+      "deadline": "2026-11-30",
+      "url": "https://work.mma.go.kr/caisBYIS/search/cygonggogeomsaekView.do?cygonggo_no=2000001549306",
+      "note": "현역 전문연구요원, 전직 가능. LLM Agent, 멀티모달, 광학 스펙트럼 분석 모델. 서울 구로. 3명 이상",
+      "status": "open",
+      "first_seen": "2026-11-14",
+      "last_seen": "2026-11-14",
+      "changes": []
+    },
+    {
+      "id": "smartlink-jeonmun-machine-vision-ai-2000001552089",
+      "company": "스마트링크",
+      "title": "머신비전 AI 전문연구요원 채용 (석사 이상)",
+      "qualification": "석사 이상(졸업예정 포함), 경력 무관, C++ 숙련",
+      "jeonmun": "가능",
+      "deadline": "2026-11-30",
+      "url": "https://work.mma.go.kr/caisBYIS/search/cygonggogeomsaekView.do?cygonggo_no=2000001552089",
+      "note": "현역 전문연구요원, 전직 불가. 영상처리, 머신비전. 인천 송도. 1명",
+      "status": "open",
+      "first_seen": "2026-11-14",
+      "last_seen": "2026-11-14",
+      "changes": []
+    },
+    {
+      "id": "aibiz-deep-learning-researcher-jeonmun-2000001533089",
+      "company": "에이아이비즈",
+      "title": "Deep Learning Researcher 채용 (석사 이상/전문연구요원 가능)",
+      "qualification": "이공계 석사 이상, 신입/경력",
+      "jeonmun": "가능",
+      "deadline": "2026-12-05",
+      "url": "https://work.mma.go.kr/caisBYIS/search/cygonggogeomsaekView.do?cygonggo_no=2000001533089",
+      "note": "현역 전문연구요원, 전직 불가. 산업용 이상탐지, 공정 예측 딥러닝. 서울 동작",
+      "status": "open",
+      "first_seen": "2026-11-14",
+      "last_seen": "2026-11-14",
+      "changes": []
+    },
+    {
+      "id": "aibiz-data-scientist-jeonmun-2000001532890",
+      "company": "에이아이비즈",
+      "title": "Data Scientist 채용 (석사 이상/전문연구요원 가능)",
+      "qualification": "석사 이상, 신입/경력",
+      "jeonmun": "가능",
+      "deadline": "2026-12-05",
+      "url": "https://work.mma.go.kr/caisBYIS/search/cygonggogeomsaekView.do?cygonggo_no=2000001532890",
+      "note": "현역 전문연구요원, 전직 불가. 제조 데이터 분석, 시계열 이상탐지. 서울 동작",
+      "status": "open",
+      "first_seen": "2026-11-14",
+      "last_seen": "2026-11-14",
+      "changes": []
+    },
+    {
+      "id": "madup-ai-engineer-platform-jeonmun-2000001545495",
+      "company": "매드업",
+      "title": "[제품본부] AI Engineer(Platform) - 3년 이상 (전문연구요원 가능)",
+      "qualification": "석사 이상, 경력 3년 이상",
+      "jeonmun": "가능",
+      "deadline": "2027-01-03",
+      "url": "https://work.mma.go.kr/caisBYIS/search/cygonggogeomsaekView.do?cygonggo_no=2000001545495",
+      "note": "현역 전문연구요원, 전직 가능. LLM 서빙 플랫폼, MLOps. 서울 강남",
+      "status": "open",
+      "first_seen": "2026-11-14",
+      "last_seen": "2026-11-14",
+      "changes": []
+    },
+    {
+      "id": "madup-ai-engineer-product-jeonmun-2000001545496",
+      "company": "매드업",
+      "title": "[제품본부] AI Engineer(Product) - 3년 이상 (전문연구요원 가능)",
+      "qualification": "석사 이상, 경력 3년 이상",
+      "jeonmun": "가능",
+      "deadline": "2027-01-03",
+      "url": "https://work.mma.go.kr/caisBYIS/search/cygonggogeomsaekView.do?cygonggo_no=2000001545496",
+      "note": "현역 전문연구요원, 전직 가능. 멀티모달, LLM 모델 학습과 평가. 서울 강남",
+      "status": "open",
+      "first_seen": "2026-11-14",
+      "last_seen": "2026-11-14",
+      "changes": []
+    },
+    {
+      "id": "bigwave-robotics-research-engineer-jeonmun-2000001545106",
+      "company": "빅웨이브로보틱스",
+      "title": "Research Engineer (전문연구요원)",
+      "qualification": "로봇공학, 컴퓨터공학, AI 관련 석/박사 또는 그에 준하는 역량",
+      "jeonmun": "가능",
+      "deadline": "2026-11-30",
+      "url": "https://work.mma.go.kr/caisBYIS/search/cygonggogeomsaekView.do?cygonggo_no=2000001545106",
+      "note": "비고에 '전문연구요원 편입 가능' 명시(고용형태 칸은 산업기능요원으로 표기). VLA 기반 로봇 파운데이션 모델, 강화학습. 서울 강남. 1명",
+      "status": "open",
+      "first_seen": "2026-11-14",
+      "last_seen": "2026-11-14",
+      "changes": []
+    },
+    {
+      "id": "hl-mando-jeonmun-pangyo-2000001559289",
+      "company": "HL만도",
+      "title": "[HL만도/판교] 전문연구요원 선발",
+      "qualification": "석사, 신입",
+      "jeonmun": "가능",
+      "deadline": "2026-11-15",
+      "url": "https://work.mma.go.kr/caisBYIS/search/cygonggogeomsaekView.do?cygonggo_no=2000001559289",
+      "note": "현역 전문연구요원, 전직 불가. 모집분야 상세는 회사 채용 페이지 참조(AI 분야 여부 미확인). 2명",
+      "status": "open",
+      "first_seen": "2026-11-14",
+      "last_seen": "2026-11-14",
+      "changes": []
+    },
+    {
+      "id": "vueron-deep-learning-engineer-perception-jeonmun-00172756",
+      "company": "뷰런테크놀로지",
+      "title": "Deep Learning Engineer(Perception) 전문연구요원 채용",
+      "qualification": "대학원 이상, 경력 2년 이상",
+      "jeonmun": "가능",
+      "deadline": "2026-12-04",
+      "url": "https://www.rndjob.or.kr/info/sp_eview01.asp?gno=00172756",
+      "note": "현역/보충역, 신규/전직 구분은 공고문에서 미확인. 서울",
+      "status": "open",
+      "first_seen": "2026-11-14",
+      "last_seen": "2026-11-14",
+      "changes": []
+    },
+    {
+      "id": "vueron-deep-learning-engineer-e2e-jeonmun-00172755",
+      "company": "뷰런테크놀로지",
+      "title": "Deep Learning Engineer(E2E 자율주행) 전문연구요원 채용",
+      "qualification": "대학원 이상, 신입/경력",
+      "jeonmun": "가능",
+      "deadline": "2026-12-04",
+      "url": "https://www.rndjob.or.kr/info/sp_eview01.asp?gno=00172755",
+      "note": "현역/보충역, 신규/전직 구분은 공고문에서 미확인. 서울 강남/서초. 1명",
+      "status": "open",
+      "first_seen": "2026-11-14",
+      "last_seen": "2026-11-14",
       "changes": []
     }
   ],
@@ -335,7 +498,7 @@
       "note": "12/4 14:00 마감. 무상 아님: H100 1장당 월 30만원 부담금(청년·지역기업 50% 할인). 온라인 설명회 11/19 14:00",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": [],
       "univ": "가능"
     },
@@ -351,7 +514,7 @@
       "note": "이메일 접수. 마감 시각 미확인. 기업마당 페이지 기준",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": [],
       "univ": "불가"
     },
@@ -368,7 +531,7 @@
       "note": "GPU 전용 아님, 범용 클라우드 크레딧",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": [],
       "univ": "불가"
     },
@@ -385,7 +548,7 @@
       "note": "범용 크레딧, 일부 품목 제외",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": [],
       "univ": "불가"
     },
@@ -402,7 +565,7 @@
       "note": "글로벌 프로그램, 한국 전용 공모 아님",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": [],
       "univ": "불가"
     },
@@ -419,7 +582,7 @@
       "note": "글로벌 프로그램, 범용 AWS 크레딧",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": [],
       "univ": "불가"
     },
@@ -436,7 +599,7 @@
       "note": "글로벌 프로그램. 단계별 금액과 세부 자격은 페이지에 미기재",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": [],
       "univ": "불가"
     },
@@ -453,7 +616,7 @@
       "note": "글로벌 프로그램. 크레딧 금액은 페이지에 미기재",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-13",
+      "last_seen": "2026-11-14",
       "changes": [],
       "univ": "불가"
     }
