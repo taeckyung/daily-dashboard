@@ -1,6 +1,22 @@
 {
-  "updated_at": "2026-11-16T23:36:53+00:00",
+  "updated_at": "2026-11-17T23:36:43+00:00",
   "runs": [
+    {
+      "date": "2026-11-18",
+      "summary": "병역일터 신규 1건(HL만도 판교 전문연 재공고, 11/22 마감). NIPA 첨단 GPU 수시모집은 자원 소진으로 조기 종료 상태로 기록. RNDJOB 신규 AI 공고와 대기업 AI 전문연 공고 없음. 이너버즈 11/20, HL만도 11/22 마감 임박",
+      "new": {
+        "jobs": [
+          "hl-mando-jeonmun-pangyo-2000001564490"
+        ],
+        "gpu": [
+          "nipa-2026-advanced-gpu-rolling"
+        ]
+      },
+      "changed": {
+        "jobs": [],
+        "gpu": []
+      }
+    },
     {
       "date": "2026-11-17",
       "summary": "병역일터 신규 전문연 AI 공고 3건(뉴로코어, 이에이치알앤씨, 인공지능연구원). RNDJOB 신규 AI 공고와 대기업 AI 전문연 공고, GPU 신규 사업 없음. 이너버즈 11/20 마감 임박",
@@ -135,7 +151,7 @@
       "note": "AI, Data Intelligence, 6G, Robot 등 8개 분야 인재풀. 특정 포지션 공고 아님. 서울 우면",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -150,7 +166,7 @@
       "note": "현역 신규편입 대상. '27년 편입은 TO 확보 여부에 따라 결정. 조기 마감 가능. 역삼",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -165,7 +181,7 @@
       "note": "계약직 1년(정규전환 가능). 조기 마감 가능. 역삼 또는 성수",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -180,7 +196,7 @@
       "note": "계약직 2년(정규전환 가능). 조기 마감 가능. 역삼",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -195,7 +211,7 @@
       "note": "LLM/LMM pre-training, post-training. 공고에 전문연구요원 채용 및 전직 불가 명시",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -210,7 +226,7 @@
       "note": "Residency 또는 Postdoc 1년 계약. 전문연 불가 명시",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -225,7 +241,7 @@
       "note": "전문연 불가 명시",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -240,7 +256,7 @@
       "note": "수리최적화 + ML/RL. 전문연 불가 명시",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -255,7 +271,7 @@
       "note": "제조 비전 검사, AI Agent. 전문연 불가 명시",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -291,7 +307,7 @@
       "note": "정규직, 신규편입 및 전직 대상. 강남",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -306,7 +322,7 @@
       "note": "제목에만 전문연구요원 표기, 본문에 편입/전직 조건 없음. SW(Kernel, Compiler, Runtime, SDK, MLOps) 중심",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -320,7 +336,7 @@
       "note": "병역일터 공고 기준. 현역 배정 1명. 서울 가산",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -334,7 +350,7 @@
       "note": "3DGS/NeRF, SMPL-X. 서울 강남",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -348,7 +364,7 @@
       "note": "모델 경량화, 인퍼런스 가속. 제목은 신규/전직이나 상세 항목은 전직자 채용 불가로 불일치. 서울 도곡",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -362,7 +378,7 @@
       "note": "마감일은 병역일터 공고 기준. 신규편입만. CTR/CVR 예측, RTB. 서울 강남",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -376,7 +392,7 @@
       "note": "의료영상 딥러닝. 모집 2명. 서울 역삼",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -390,7 +406,7 @@
       "note": "상세는 서울대 기계공학부 게시 공고문 기준. 전문연은 대전 연구소 근무",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -404,7 +420,7 @@
       "note": "rndjob 게시 기준, 신규편입/전직 구분 미확인. 서울 서초/강남",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -418,7 +434,7 @@
       "note": "현역 전문연구요원, 전직 가능. LLM Agent, 멀티모달, 광학 스펙트럼 분석 모델. 서울 구로. 3명 이상",
       "status": "open",
       "first_seen": "2026-11-14",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -432,7 +448,7 @@
       "note": "현역 전문연구요원, 전직 불가. 영상처리, 머신비전. 인천 송도. 1명",
       "status": "open",
       "first_seen": "2026-11-14",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -446,7 +462,7 @@
       "note": "현역 전문연구요원, 전직 불가. 산업용 이상탐지, 공정 예측 딥러닝. 서울 동작",
       "status": "open",
       "first_seen": "2026-11-14",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -460,7 +476,7 @@
       "note": "현역 전문연구요원, 전직 불가. 제조 데이터 분석, 시계열 이상탐지. 서울 동작",
       "status": "open",
       "first_seen": "2026-11-14",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -474,7 +490,7 @@
       "note": "현역 전문연구요원, 전직 가능. LLM 서빙 플랫폼, MLOps. 서울 강남",
       "status": "open",
       "first_seen": "2026-11-14",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -488,7 +504,7 @@
       "note": "현역 전문연구요원, 전직 가능. 멀티모달, LLM 모델 학습과 평가. 서울 강남",
       "status": "open",
       "first_seen": "2026-11-14",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -502,7 +518,7 @@
       "note": "비고에 '전문연구요원 편입 가능' 명시(고용형태 칸은 산업기능요원으로 표기). VLA 기반 로봇 파운데이션 모델, 강화학습. 서울 강남. 1명",
       "status": "open",
       "first_seen": "2026-11-14",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -537,7 +553,7 @@
       "note": "현역/보충역, 신규/전직 구분은 공고문에서 미확인. 서울",
       "status": "open",
       "first_seen": "2026-11-14",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -551,7 +567,7 @@
       "note": "현역/보충역, 신규/전직 구분은 공고문에서 미확인. 서울 강남/서초. 1명",
       "status": "open",
       "first_seen": "2026-11-14",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -565,7 +581,7 @@
       "note": "비고에 '전문연구요원/산업기능요원 대상 채용' 명시(고용형태 칸은 산업기능요원 보충역). 의료영상 딥러닝 모델 개발. 서울 강남. 회사 채용 홈페이지 직접 지원만 가능",
       "status": "open",
       "first_seen": "2026-11-15",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -579,7 +595,7 @@
       "note": "현역 전문연구요원, 전직 가능. 생체신호 분석 알고리즘 개발. 경기 성남(판교). 2명",
       "status": "open",
       "first_seen": "2026-11-15",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -593,7 +609,7 @@
       "note": "현역 전문연구요원, 전직 가능. 병리 영상(WSI) AI 모델 연구개발. 서울 강남. 1명",
       "status": "open",
       "first_seen": "2026-11-15",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -607,7 +623,7 @@
       "note": "현역 전문연구요원, 전직 불가. Agent 구조 설계, 지식 베이스, 검색 품질 고도화. 서울 성동. 1명",
       "status": "open",
       "first_seen": "2026-11-15",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -621,7 +637,7 @@
       "note": "보충역 전문연구요원, 전직 불가. LLM, 멀티모달(VLM/VLA), Physical AI 연구. 서울 강남. 3명 이상",
       "status": "open",
       "first_seen": "2026-11-15",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -635,7 +651,7 @@
       "note": "현역 전문연구요원, 전직 가능. 의료영상, 생체 음향 신호처리 딥러닝, 강화학습 기반 제어. 서울 송파. 2명",
       "status": "open",
       "first_seen": "2026-11-15",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -649,7 +665,7 @@
       "note": "rndjob 게시 기준, 신규편입/전직 구분 미확인. LLM 생성 파이프라인, 검색 Agent(RAG), 임베딩/리랭킹. 서울 성동",
       "status": "open",
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -663,7 +679,7 @@
       "note": "rndjob 게시 기준. R&D 과제 AI 기술 개발, 정부과제 기획. 대전 유성/충남 천안. 1명",
       "status": "open",
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -677,7 +693,7 @@
       "note": "rndjob 게시 기준, 담당업무와 신규편입/전직 구분은 공고에 미기재. 회사 홈페이지 지원. 서울 관악",
       "status": "open",
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -691,7 +707,7 @@
       "note": "rndjob 게시 기준. 뇌파, 심전도 등 생체신호 AI 알고리즘 설계, 경량화. 경기 성남 분당. 1명",
       "status": "open",
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -705,7 +721,7 @@
       "note": "rndjob 게시 기준, 신규편입/전직 구분 미확인. DBpia 운영사 AI사업부. 회사 홈페이지 지원. 서울 마포",
       "status": "open",
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -719,7 +735,7 @@
       "note": "rndjob 게시 기준, 담당업무 상세 미기재. 제목에 전직 포함 명시. 경기 성남 분당. 2명",
       "status": "open",
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -733,7 +749,7 @@
       "note": "rndjob 게시 기준. 문서 인식 모델, VLM, AI 에이전트 연구개발, 모델 서빙 최적화. 서울 서초",
       "status": "open",
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -747,7 +763,7 @@
       "note": "rndjob 게시 기준, 신규편입/전직 구분 미확인. 이미지 기반 Multi-task foundation model, 이기종 센서 Perception. 서울 강남. 1명",
       "status": "open",
       "first_seen": "2026-11-16",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -761,7 +777,7 @@
       "note": "AI Agent/Agentic AI, Ontology·Knowledge Graph 기반 RAG, 강화학습 기반 생산·재고 최적화(제조·SCM). 접수는 잡코리아/사람인. 서울 강남. 1명",
       "status": "open",
       "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -775,7 +791,7 @@
       "note": "대기오염 예측 등 환경·보건 분야 머신러닝 및 AI 연구, 국가 R&D 수행. 인천 환경산업연구단지. 1명",
       "status": "open",
       "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": []
     },
     {
@@ -789,7 +805,21 @@
       "note": "AI 응용 개발, 온라인 교육 플랫폼 LMS 개선, 업무 자동화, AI 교육 커리큘럼 기획. 연구직보다 응용 개발 성격. 성남 판교. 3명 이상",
       "status": "open",
       "first_seen": "2026-11-17",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
+      "changes": []
+    },
+    {
+      "id": "hl-mando-jeonmun-pangyo-2000001564490",
+      "company": "HL만도",
+      "title": "[HL만도/판교] 전문연구요원 선발",
+      "qualification": "석사, 신입. 공학계",
+      "jeonmun": "가능",
+      "deadline": "2026-11-22",
+      "url": "https://work.mma.go.kr/caisBYIS/search/cygonggogeomsaekView.do?cygonggo_no=2000001564490",
+      "note": "현역 전문연구요원, 전직 불가. 11/15 마감 공고의 재게시. 모집분야 상세는 회사 채용 페이지 참조(AI 분야 여부 미확인). 2명",
+      "status": "open",
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
       "changes": []
     }
   ],
@@ -806,7 +836,7 @@
       "note": "12/4 14:00 마감. 무상 아님: H100 1장당 월 30만원 부담금(청년·지역기업 50% 할인). 온라인 설명회 11/19 14:00",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": [],
       "univ": "가능"
     },
@@ -846,7 +876,7 @@
       "note": "GPU 전용 아님, 범용 클라우드 크레딧",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": [],
       "univ": "불가"
     },
@@ -863,7 +893,7 @@
       "note": "범용 크레딧, 일부 품목 제외",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": [],
       "univ": "불가"
     },
@@ -880,7 +910,7 @@
       "note": "글로벌 프로그램, 한국 전용 공모 아님",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": [],
       "univ": "불가"
     },
@@ -897,7 +927,7 @@
       "note": "글로벌 프로그램, 범용 AWS 크레딧",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": [],
       "univ": "불가"
     },
@@ -914,7 +944,7 @@
       "note": "글로벌 프로그램. 단계별 금액과 세부 자격은 페이지에 미기재",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": [],
       "univ": "불가"
     },
@@ -931,9 +961,25 @@
       "note": "글로벌 프로그램. 크레딧 금액은 페이지에 미기재",
       "status": "open",
       "first_seen": "2026-11-13",
-      "last_seen": "2026-11-17",
+      "last_seen": "2026-11-18",
       "changes": [],
       "univ": "불가"
+    },
+    {
+      "id": "nipa-2026-advanced-gpu-rolling",
+      "name": "「첨단 GPU 활용 지원 사업」 사용자 수시 모집 (공고 제2026-0395호)",
+      "org": "과기정통부 / NIPA",
+      "kind": "정부",
+      "univ": "가능",
+      "target": "산학연 (첨부 공고문 기준)",
+      "scale": "미확인",
+      "deadline": "2026-11-30",
+      "url": "https://www.nipa.kr/home/2-2/16668",
+      "status": "closed",
+      "note": "접수기간은 2026-04-01 ~ 2026-11-30이나 GPU 자원 전량 배정으로 접수 조기 종료. 유휴 자원 발생 시 수시모집 재개 예정으로 안내",
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "changes": []
     }
   ]
 }
