@@ -1,20 +1,26 @@
 {
-  "updated_at": "2026-11-17T23:36:43+00:00",
+  "updated_at": "2026-11-18T07:18:43+00:00",
   "runs": [
     {
       "date": "2026-11-18",
-      "summary": "병역일터 신규 1건(HL만도 판교 전문연 재공고, 11/22 마감). NIPA 첨단 GPU 수시모집은 자원 소진으로 조기 종료 상태로 기록. RNDJOB 신규 AI 공고와 대기업 AI 전문연 공고 없음. 이너버즈 11/20, HL만도 11/22 마감 임박",
+      "summary": "병역일터 신규 1건(HL만도 판교 전문연 재공고, 11/22 마감). NIPA 첨단 GPU 수시모집은 자원 소진으로 조기 종료 상태로 기록. RNDJOB 신규 AI 공고와 대기업 AI 전문연 공고 없음. 이너버즈 11/20, HL만도 11/22 마감 임박. 포닥 펀딩 수집 시작: 세종과학펠로우십(12/8), 미시간 Schmidt AI in Science(11/23), JHU DSAI(12/11)",
       "new": {
         "jobs": [
           "hl-mando-jeonmun-pangyo-2000001564490"
         ],
         "gpu": [
           "nipa-2026-advanced-gpu-rolling"
+        ],
+        "funding": [
+          "nrf-2027-sejong-fellowship-domestic-return",
+          "umich-schmidt-ai-in-science-postdoc-2027",
+          "jhu-dsai-postdoctoral-fellowship-2027"
         ]
       },
       "changed": {
         "jobs": [],
-        "gpu": []
+        "gpu": [],
+        "funding": []
       }
     },
     {
@@ -977,6 +983,53 @@
       "url": "https://www.nipa.kr/home/2-2/16668",
       "status": "closed",
       "note": "접수기간은 2026-04-01 ~ 2026-11-30이나 GPU 자원 전량 배정으로 접수 조기 종료. 유휴 자원 발생 시 수시모집 재개 예정으로 안내",
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "changes": []
+    }
+  ],
+  "funding": [
+    {
+      "id": "nrf-2027-sejong-fellowship-domestic-return",
+      "name": "2027년도 세종과학펠로우십 (국내 트랙 / 복귀·유치 트랙)",
+      "org": "과기정통부 / 한국연구재단",
+      "kind": "국내",
+      "target": "박사 취득 후 7년 이내 또는 만 39세 이하, 국내 이공분야 전임교원이 아닌 연구자. 국내 트랙은 국내 박사, 복귀·유치 트랙은 해외 박사",
+      "scale": "연 1.3억원 내외, 5년",
+      "deadline": "2026-12-08",
+      "url": "https://www.nrf.re.kr/biz/notice/view?postNo=285270&menuNo=362&bizNo=142",
+      "note": "기초연구사업(개인연구) 1차 신규과제 공모(공고 제2026-1069호). 연구자 신청 11/25 14:00 ~ 12/8 18:00. 자격과 규모는 대학 산학협력단 공지 기준이며 재단 신청요강 첨부파일에서 재확인 필요. 국외연수 트랙은 이번 공모에 없음",
+      "status": "open",
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "changes": []
+    },
+    {
+      "id": "umich-schmidt-ai-in-science-postdoc-2027",
+      "name": "Schmidt AI in Science Postdoctoral Fellowship (2027 cohort)",
+      "org": "University of Michigan MIDAS",
+      "kind": "해외",
+      "target": "2022-09-01 이후 박사 취득, 펠로십 시작 전 학위 수여. AI를 과학·공학 연구에 적용하는 연구자",
+      "scale": "미확인",
+      "deadline": "2026-11-23",
+      "url": "https://midas.umich.edu/training/postdoctoral-programs/schmidt-ai-in-science-postdoctoral-fellowship/apply/",
+      "note": "프로그램의 마지막 모집 회차로 안내. 2027년 8~9월 시작. 외국인 지원 가능 여부 미확인",
+      "status": "open",
+      "first_seen": "2026-11-18",
+      "last_seen": "2026-11-18",
+      "changes": []
+    },
+    {
+      "id": "jhu-dsai-postdoctoral-fellowship-2027",
+      "name": "DSAI Postdoctoral Fellowship Program (Fall 2027)",
+      "org": "Johns Hopkins Data Science and AI Institute",
+      "kind": "해외",
+      "target": "데이터 사이언스·AI 기초, 타 분야 응용, 거버넌스 연구자. 세부 자격 미확인",
+      "scale": "2년 예정(1년 임용 후 갱신), 급여, 학술 출장비, 컴퓨팅 자원",
+      "deadline": "2026-12-11",
+      "url": "https://ai.jhu.edu/careers/postdoctoral-fellowship-program/",
+      "note": "2027년 가을 시작. 외국인 지원 가능 여부 미확인",
+      "status": "open",
       "first_seen": "2026-11-18",
       "last_seen": "2026-11-18",
       "changes": []
