@@ -13,16 +13,17 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 DEFAULT_DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "data.json"
-CATEGORIES = ("jobs", "gpu")
+CATEGORIES = ("jobs", "gpu", "funding")
 REQUIRED_FIELDS = {
     "jobs": ("id", "company", "title", "url"),
     "gpu": ("id", "name", "org", "url"),
+    "funding": ("id", "name", "org", "url"),
 }
 TRACKED_FIELDS = ("deadline", "deadline_text", "status", "jeonmun", "scale")
 META_FIELDS = ("first_seen", "last_seen", "changes")
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 URL_RE = re.compile(r"^https?://", re.IGNORECASE)
-EMPTY_DATA = {"updated_at": None, "runs": [], "jobs": [], "gpu": []}
+EMPTY_DATA = {"updated_at": None, "runs": [], "jobs": [], "gpu": [], "funding": []}
 
 
 class FindingsError(ValueError):

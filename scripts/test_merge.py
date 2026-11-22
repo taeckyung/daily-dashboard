@@ -41,8 +41,21 @@ def gpu(**overrides):
     return {**base, **overrides}
 
 
-def findings(date, jobs=(), gpus=(), summary=""):
-    return {"date": date, "summary": summary, "jobs": list(jobs), "gpu": list(gpus)}
+def funding(**overrides):
+    base = {
+        "id": "nrf-sejong-fellowship-2027",
+        "name": "세종과학펠로우십 국내트랙",
+        "org": "한국연구재단",
+        "kind": "국내",
+        "scale": "연 1.3억원, 5년",
+        "deadline": "2026-12-16",
+        "url": "https://www.nrf.re.kr/biz/notice/view?id=1",
+    }
+    return {**base, **overrides}
+
+
+def findings(date, jobs=(), gpus=(), summary="", fundings=()):
+    return {"date": date, "summary": summary, "jobs": list(jobs), "gpu": list(gpus), "funding": list(fundings)}
 
 
 class MergeAccumulationTest(unittest.TestCase):
@@ -51,7 +64,25 @@ class MergeAccumulationTest(unittest.TestCase):
         self.assertEqual(data["updated_at"], NOW)
         self.assertEqual(data["jobs"][0]["first_seen"], "2026-11-14")
         self.assertEqual(data["jobs"][0]["status"], "open")
-        self.assertEqual(data["runs"][0]["new"], {"jobs": ["lg-ai-research-phd-2026"], "gpu": ["nipa-gpu-2026-4q"]})
+        self.assertEqual(data["runs"][0]["new"], {"jobs": ["lg-ai-research-phd-2026"], "gpu": ["nipa-gpu-2026-4q"], "funding": []})
+
+    def test_funding_is_added_to_data_saved_before_the_category_existed(self):
+        legacy = {k: v for k, v in merge(EMPTY_DATA, findings("2026-11-14", [job()]), NOW).items() if k != "funding"}
+        legacy["runs"] = [{**r, "new": {"jobs": r["new"]["jobs"], "gpu": []}} for r in legacy["runs"]]
+        data = merge(legacy, findings("2026-11-15", fundings=[funding()]), NOW)
+        self.assertEqual(data["funding"][0]["first_seen"], "2026-11-15")
+        self.assertEqual(data["runs"][0]["new"]["funding"], ["nrf-sejong-fellowship-2027"])
+        self.assertEqual(len(data["jobs"]), 1)
+
+    def test_funding_closes_the_day_after_deadline(self):
+        day1 = merge(EMPTY_DATA, findings("2026-12-16", fundings=[funding()]), NOW)
+        after = merge(day1, findings("2026-12-17"), NOW)
+        self.assertEqual(day1["funding"][0]["status"], "open")
+        self.assertEqual(after["funding"][0]["status"], "closed")
+
+    def test_rejects_funding_without_org(self):
+        with self.assertRaises(FindingsError):
+            merge(EMPTY_DATA, findings("2026-11-14", fundings=[funding(org="")]), NOW)
 
     def test_items_missing_from_later_run_are_kept(self):
         day1 = merge(EMPTY_DATA, findings("2026-11-14", [job()], [gpu()]), NOW)

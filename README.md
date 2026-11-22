@@ -1,6 +1,6 @@
 # Daily Dashboard
 
-**TL;DR**: A Chrome new-tab page that shows PhD-level AI research openings (including 전문연구요원 positions) and Korean GPU support programs. A scheduled Claude session refreshes the data every day and the history keeps accumulating.
+**TL;DR**: A Chrome new-tab page that shows PhD-level AI research openings (including 전문연구요원 positions) Korean GPU support programs, and postdoc funding. A scheduled Claude session refreshes the data every day and the history keeps accumulating.
 
 ## How it works
 
@@ -42,11 +42,12 @@ The token is stored only in this browser's extension storage.
 | 즐겨찾기 | Full-width row at the top with the cards you starred (☆ on each card). Synced through your Chrome profile |
 | AI 연구직 · 전문연 가능 | Open positions where 전문연구요원 is confirmed possible; filters for new, closing soon |
 | GPU 지원사업 · 대학 가능 | Open programs that universities or university labs can apply to; filters for new, closing soon, government, corporate |
+| 포닥 펀딩 · 펠로십 | Open postdoc fellowships and funding programs, shown under the GPU section; filters for new, closing soon, domestic, abroad |
 | 지난 항목 | Closed or expired items, folded by default |
 | 삭제한 항목 | Cards you removed with ✕, folded by default; each has a 복원 button |
 | 업데이트 기록 | One line per daily run with new and changed counts |
 
-All found items are stored in `data/data.json`, but the page shows only 전문연-eligible positions and university-eligible GPU programs. Items are sorted with new ones first, then by nearest deadline. Data is refetched when the cached copy is older than 30 minutes, or when you click **새로고침**.
+All found items are stored in `data/data.json`, but the page shows only 전문연-eligible positions and university-eligible GPU programs. Every postdoc funding item is shown. Items are sorted with new ones first, then by nearest deadline. Data is refetched when the cached copy is older than 30 minutes, or when you click **새로고침**.
 
 ## Data accumulation
 

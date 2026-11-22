@@ -90,6 +90,7 @@ button:disabled { opacity: 0.5; cursor: default; }
 .favorites .hint { margin: 0; color: var(--muted); font-size: 13px; }
 
 .columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px; align-items: start; margin-top: 28px; }
+.column-stack { display: grid; gap: 36px; min-width: 0; }
 
 .filters { display: flex; gap: 4px; flex-wrap: wrap; }
 .chip { border-color: transparent; background: none; border-radius: 999px; color: var(--muted); font-size: 12px; padding: 3px 11px; }

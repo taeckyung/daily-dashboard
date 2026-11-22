@@ -16,7 +16,7 @@ import { COLUMNS, renderColumn, renderFavorites, renderLog, toEntries } from "./
 
 const CLOCK_TICK_MS = 1000;
 const $ = (id) => document.getElementById(id);
-let activeFilters = { jobs: "all", gpu: "all" };
+let activeFilters = Object.fromEntries(Object.keys(COLUMNS).map((key) => [key, "all"]));
 let current = null;
 let marks = { favorites: [], hidden: [] };
 

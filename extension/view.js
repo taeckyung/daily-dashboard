@@ -29,6 +29,21 @@ export const COLUMNS = Object.freeze({
     ],
     tags: (item) => (item.kind ? [item.kind] : []),
   },
+  funding: {
+    title: "포닥 펀딩 · 펠로십",
+    visible: () => true,
+    heading: (item) => item.name,
+    owner: (item) => item.org,
+    details: (item) => [item.target, item.scale, item.note],
+    filters: [
+      { key: "all", label: "전체", test: () => true },
+      { key: "new", label: "신규", test: (e) => e.state.isNew },
+      { key: "soon", label: "마감 임박", test: (e) => e.state.closingSoon },
+      { key: "domestic", label: "국내", test: (e) => e.item.kind === "국내" },
+      { key: "abroad", label: "해외", test: (e) => e.item.kind === "해외" },
+    ],
+    tags: (item) => (item.kind ? [item.kind] : []),
+  },
 });
 
 export function el(tag, props = {}, children = []) {
@@ -189,8 +204,9 @@ export function renderFavorites(root, allEntries, actions) {
 export function renderLog(root, runs) {
   if (!runs?.length) return root.replaceChildren();
   const rows = runs.map((run) => {
-    const added = (run.new?.jobs?.length ?? 0) + (run.new?.gpu?.length ?? 0);
-    const changed = (run.changed?.jobs?.length ?? 0) + (run.changed?.gpu?.length ?? 0);
+    const total = (ids) => Object.values(ids ?? {}).reduce((sum, list) => sum + list.length, 0);
+    const added = total(run.new);
+    const changed = total(run.changed);
     return el("li", {}, [
       el("span", { class: "log-date", text: run.date }),
       el("span", { class: "log-counts", text: `신규 ${added} · 변경 ${changed}` }),

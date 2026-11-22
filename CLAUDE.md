@@ -16,7 +16,7 @@ Chrome new-tab extension plus accumulated data file. A scheduled Claude session 
 1. When the clone is missing, clone with `git clone git@github.com:taeckyung/daily-dashboard.git` (HTTPS clone fails on auth).
 2. Run `git pull --ff-only origin main`.
 3. Read `data/data.json`. Reuse the existing `id` for every item already listed.
-4. Search the web for both topics (see Search scope).
+4. Search the web for all three topics (see Search scope).
 5. Write the findings file to `.claude/tmp/findings.json` (see Findings schema).
 6. Run `python3 scripts/merge.py .claude/tmp/findings.json`.
 7. Run `python3 -m unittest discover -s scripts`. When a test fails, stop and report; no commit.
@@ -25,8 +25,9 @@ Chrome new-tab extension plus accumulated data file. A scheduled Claude session 
 
 ## Search scope
 
-- `jobs`: PhD-level AI research positions in Korea and 전문연구요원 positions. Always check: 삼성리서치, SAIT, LG전자, LG AI Research, 삼성메디슨, HD현대로보틱스.
+- `jobs`: PhD-level AI research positions in Korea and 전문연구요원 positions. Always check: 삼성리서치, SAIT, LG전자, LG AI Research, 삼성메디슨, HD현대로보틱스, 네이버 (네이버클라우드, 네이버랩스), 토스, 업스테이지. Other AI companies in scope: 카카오, SK텔레콤, 크래프톤, 현대자동차, 트웰브랩스, 뤼튼, 리벨리온, 퓨리오사AI, and any company or startup with an AI research team; collect postings from unlisted companies when found.
 - `gpu`: Korean GPU support programs. Government (과기정통부, NIPA, IITP, NIA, 국가AI컴퓨팅센터, 지자체) and corporate (cloud, telecom, large-company GPU credit or research support).
+- `funding`: postdoc funding for AI researchers. Domestic (한국연구재단 세종과학펠로우십, 박사후 국내·외연수, 과기정통부 and 교육부 postdoc programs, IBS, KIAS, 재단 fellowships) and abroad (institute-level AI postdoctoral fellowships, national and foundation fellowships open to Korean nationals). Single-lab postdoc hires excluded.
 
 ## Findings schema
 
@@ -42,6 +43,10 @@ Chrome new-tab extension plus accumulated data file. A scheduled Claude session 
   "gpu": [{
     "id": "nipa-gpu-2026-4q", "name": "...", "org": "NIPA", "kind": "정부 | 기업", "univ": "가능 | 불가 | 미확인",
     "target": "...", "scale": "...", "deadline": "2026-11-20", "url": "https://...", "note": "..."
+  }],
+  "funding": [{
+    "id": "nrf-2027-sejong-fellowship", "name": "...", "org": "한국연구재단", "kind": "국내 | 해외",
+    "target": "eligibility", "scale": "amount and duration", "deadline": "2026-12-08", "url": "https://...", "note": "..."
   }]
 }
 ```
@@ -49,12 +54,14 @@ Chrome new-tab extension plus accumulated data file. A scheduled Claude session 
 ## Findings rules
 
 - `date`: run date in Asia/Seoul, `YYYY-MM-DD`.
-- Required: `id`, `url`, plus `company` and `title` (jobs) or `name` and `org` (gpu).
+- Required: `id`, `url`, plus `company` and `title` (jobs) or `name` and `org` (gpu, funding).
 - `id`: stable lowercase slug. Changing the `id` of an existing item prohibited.
 - `url`: the original posting, `http(s)` only.
 - `deadline`: `YYYY-MM-DD` or `null`. When the posting is rolling, use `null` and set `deadline_text`.
+- `kind` (funding): `국내` when a Korean organization funds the program, `해외` otherwise. Set on every funding item.
+- Two programs announced in one posting share one `url`: record one combined funding item, because items match by `url`.
 - `univ` (gpu): whether universities or university labs are eligible applicants. Set on every gpu item.
-- The extension displays only jobs with `jeonmun` = `가능` and gpu items with `univ` = `가능`. Collect all items regardless; filtering is display-only.
+- The extension displays only jobs with `jeonmun` = `가능` and gpu items with `univ` = `가능`. Every funding item is displayed. Collect all items regardless; filtering is display-only.
 - Include only facts confirmed on the original posting. When 전문연 eligibility is unconfirmed, use `미확인`.
 - Include every currently open item found, including items already in `data/data.json`.
 - When a posting was taken down before the deadline, include the item with `"status": "closed"`.
